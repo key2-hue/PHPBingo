@@ -1,5 +1,8 @@
 <?php
+
+  require_once(__DIR__ . '/Bingo.php');
   session_start();
+  $number = '';
   if(!isset($_SESSION['random'])) {
     // $_SESSION['random']= 'Done';
     $number = range(1,75);
