@@ -9,7 +9,7 @@
   }
   shuffle($number);
   if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    echo $number[0];
+    // echo $number[0];
     unset($number[0]);
   };
   unset($_SESSION['random']);
@@ -49,31 +49,6 @@
   <p class="resultTimes"></p>
   <p class="resultNum"></p>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script>
-    $(function() {
-      let i = 0;
-      $('.lottery').on('submit', e => {
-      i ++;
-      e.preventDefault();
-      $.ajax({
-        url: 'lottery.php',
-        type: 'POST',
-        dataType: 'json', 
-        data: {
-          num: $('.sendNum').val(),
-        },
-        processData: false,
-        contentType: false,
-      }).done(function(data) {
-        $('.resultTimes').text(i + "回目の抽選です");
-        $('.resultNum').text(data);
-        console.log(data);
-      }).fail(function(msg){
-        alert(msg);
-      });
-    });
-    })
-    
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>
