@@ -39,14 +39,15 @@
       </tr>
     <?php endfor; ?>
   </table>
-  <p class="resultTimes"></p>
-  <p class="resultNum"></p>
   
-  <?php var_dump($number) ?>
+  
+  
   <form action="" method="post" class="lottery">
     <input type="submit" value="次の番号を抽選する">
     <input type="hidden" value="<?php echo $number[0] ?>" class="sendNum" name="num">
   </form>
+  <p class="resultTimes"></p>
+  <p class="resultNum"></p>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
     $(function() {

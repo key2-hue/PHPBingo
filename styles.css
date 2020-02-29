@@ -21,3 +21,40 @@ table {
   height: 50px;
   width: 50px;
 }
+
+form {
+  margin-top: 20px;
+}
+
+input[type=submit] {
+  font-size: 15px;
+  width: 300px;
+  margin: 0 auto;
+  display: block;
+  /* border:1px solid gray; */
+  /* height: 200px; */
+  height: 50px;
+  border-style: none;
+  background-color: limegreen;
+  /* padding: 20px; */
+  border-radius: 20px;
+  box-shadow: 0 5px 0 green;
+  outline: none;
+}
+
+input[type=submit]:hover {
+  opacity: 0.8;
+  cursor:pointer;
+}
+
+input[type=submit]:active {
+  position: relative;
+  top: 5px;
+  box-shadow: none;
+}
+
+.resultTimes {
+  text-align: center;
+  margin-top: 20px;
+  font-size: 16px;
+}
