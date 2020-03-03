@@ -16,6 +16,18 @@
 
   $game = new \MyBingo\Bingo();
   $num = $game->start();
+  $finalNum = [];
+  for($i = 0; $i < 5;$i++) {
+    for($s = 0; $s < 5; $s++) {
+      $finalNum.array_push($num[$s][$i]);
+    }
+  }
+
+
+  $hitNum = $num;
+  $hitNum[2][2] = 0;
+  $php_json = json_encode($hitNum);
+  
   $number = range(1,75);
   shuffle($number);
   $js = $number[0];
@@ -66,13 +78,14 @@
         processData: false,
         contentType: false,
       }).done(function(data) {
-        const bingo = "<?php echo $num ?>";
-        for(var num = 0; num < 5; num++){
+        const bingo2 = JSON.parse('<?php echo $php_json?>');
+        for(var num = 0; num < 5; num++) {
           for(var index = 0; index < 5; index++) {
-            console.log(bingo[index][num]);
+            if(data == bingo2[index][num]) {
+              console.log("hit");
+            }
           }
         }
-
          
         
         

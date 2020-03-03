@@ -17,4 +17,6 @@ class Bingo {
     $allNum[2][2] = "FREE";
     return $allNum;
   }
+
+  
 }
