@@ -58,7 +58,7 @@
   
   
   <form action="" method="post" class="lottery">
-    <input type="submit" value="次の番号を抽選する">
+    <input type="submit" value="次の番号を抽選する" class="lotteryBtn">
     <input type="hidden" value="<?php echo $number[0] ?>" class="sendNum" name="num">
   </form>
   <p class="resultTimes"></p>
@@ -96,10 +96,38 @@
               console.log(data);
               console.log(bingo2[index][num]);
               $('.' + j).css({'opacity':0.5});
+              $('.' + j).addClass('done');
               hitNum++;
             }
             j++;
           }
+        }
+        
+        if($('.1').hasClass('done') && 
+           $('.6').hasClass('done') &&
+           $('.11').hasClass('done') &&
+           $('.16').hasClass('done') &&
+           $('.21').hasClass('done')
+        ) {
+          console.log('Bingo');
+        }
+
+        if($('.2').hasClass('done') && 
+           $('.7').hasClass('done') &&
+           $('.12').hasClass('done') &&
+           $('.17').hasClass('done') &&
+           $('.22').hasClass('done')
+        ) {
+          console.log('Bingo');
+        }
+
+        if($('.3').hasClass('done') && 
+           $('.8').hasClass('done') &&
+           $('.13').hasClass('done') &&
+           $('.18').hasClass('done') &&
+           $('.23').hasClass('done')
+        ) {
+          console.log('Bingo');
         }
       
          
@@ -107,11 +135,15 @@
         
         if(i < 76) {
           $('.resultTimes').text(i + "回目の抽選です");
+          $('.resultNum').text("出た数字は " + data);
         } else {
-          $('.resultTimes').text("抽選終了です");
+          $('.resultTimes').empty();
+          $('.resultNum').empty();
+          $('.lotteryBtn').prop('disabled',true);
+          $('.lotteryBtn').val("抽選終了です！");
         }
-        $('.resultNum').text("出た数字は " + data);
-        $('.resultScore').text("空いている数" + hitNum + "枚");
+        
+        $('.resultScore').text("空いている数" + hitNum + "マス");
       }).fail(function(msg){
         alert(msg);
       });
