@@ -45,6 +45,10 @@
       <th>B</th><th>I</th><th>N</th><th>G</th><th>O</th>
     </tr>
     <?php $index = 1 ?>
+    
+    <?php foreach($bingo->ajaxNum as $ans): ?>
+      <?php echo $ans; ?>
+    <?php endforeach; ?>
     <?php for ($i = 0; $i < 5; $i++): ?>
       <tr>
         <?php for($a = 0; $a < 5; $a ++): ?>

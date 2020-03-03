@@ -1,5 +1,7 @@
 <?php
-
+  require_once(__DIR__ . '/bingo.php');
+  $lotteryNum = new \MyBingo\Bingo();
+  
   // $num = $_POST['num'];
 
 
