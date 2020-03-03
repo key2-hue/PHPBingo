@@ -44,10 +44,12 @@
     <tr class="title"> 
       <th>B</th><th>I</th><th>N</th><th>G</th><th>O</th>
     </tr>
+    <?php $index = 1 ?>
     <?php for ($i = 0; $i < 5; $i++): ?>
       <tr>
         <?php for($a = 0; $a < 5; $a ++): ?>
-          <td class="num"><?php echo $num[$a][$i]?></td>
+          <td class="num <?php echo $index?>"><?php echo $num[$a][$i]?></td>
+          <?php $index++; ?>
         <?php endfor; ?>
       </tr>
     <?php endfor; ?>
@@ -61,10 +63,12 @@
   </form>
   <p class="resultTimes"></p>
   <p class="resultNum"></p>
+  <p class="resultScore"></p>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
     $(function() {
       let i = 0;
+      let hitNum = 0;
       $('.lottery').on('submit', e => {
       i ++;
       e.preventDefault();
@@ -78,14 +82,26 @@
         processData: false,
         contentType: false,
       }).done(function(data) {
+        if(i === 1) {
+          
+          $('.' + 13).css({'opacity':0.5});
+          hitNum ++;
+        }
         const bingo2 = JSON.parse('<?php echo $php_json?>');
+        let j = 1
         for(var num = 0; num < 5; num++) {
           for(var index = 0; index < 5; index++) {
             if(data == bingo2[index][num]) {
               console.log("hit");
+              console.log(data);
+              console.log(bingo2[index][num]);
+              $('.' + j).css({'opacity':0.5});
+              hitNum++;
             }
+            j++;
           }
         }
+      
          
         
         
@@ -94,7 +110,8 @@
         } else {
           $('.resultTimes').text("抽選終了です");
         }
-        $('.resultNum').text("出た数字は " + data)
+        $('.resultNum').text("出た数字は " + data);
+        $('.resultScore').text("空いている数" + hitNum + "枚");
       }).fail(function(msg){
         alert(msg);
       });

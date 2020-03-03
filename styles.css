@@ -59,6 +59,6 @@ input[type=submit]:active {
   font-size: 16px;
 }
 
-.resultNum {
+.resultNum, .resultScore {
   text-align: center;
 }
