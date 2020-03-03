@@ -58,3 +58,7 @@ input[type=submit]:active {
   margin-top: 20px;
   font-size: 16px;
 }
+
+.resultNum {
+  text-align: center;
+}

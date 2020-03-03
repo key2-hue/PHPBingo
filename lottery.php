@@ -1,6 +1,6 @@
 <?php
 
-  $num = $_POST['num'];
+  // $num = $_POST['num'];
 
 
   header('Content-Type: application/json; charset=utf-8');
@@ -11,7 +11,7 @@
   
 
   // var_dump($_POST['num']);
-  
+  $num = rand(1, 75);
   // $num = $_POST['num'];
-  echo json_encode(10);
+  echo json_encode($num);
   

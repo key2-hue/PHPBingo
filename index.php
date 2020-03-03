@@ -18,6 +18,7 @@
   $num = $game->start();
   $number = range(1,75);
   shuffle($number);
+  $js = $number[0];
 ?>
 <!DOCTYPE html>
 <html lang="ja">
@@ -49,6 +50,43 @@
   <p class="resultTimes"></p>
   <p class="resultNum"></p>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="index.js"></script>
+  <script>
+    $(function() {
+      let i = 0;
+      $('.lottery').on('submit', e => {
+      i ++;
+      e.preventDefault();
+      $.ajax({
+        url: 'lottery.php',
+        type: 'POST',
+        dataType: 'json', 
+        data: {
+          num: $('.sendNum').val(),
+        },
+        processData: false,
+        contentType: false,
+      }).done(function(data) {
+        const bingo = "<?php echo $num ?>";
+        for(var num = 0; num < 5; num++){
+          for(var index = 0; index < 5; index++) {
+            console.log(bingo[index][num]);
+          }
+        }
+
+         
+        
+        
+        if(i < 76) {
+          $('.resultTimes').text(i + "回目の抽選です");
+        } else {
+          $('.resultTimes').text("抽選終了です");
+        }
+        $('.resultNum').text("出た数字は " + data)
+      }).fail(function(msg){
+        alert(msg);
+      });
+    });
+    })
+  </script>
 </body>
 </html>
