@@ -94,7 +94,7 @@ input[type=submit]:active {
   transition: 1s;
 }
 
-.bingo > p, .notBingo > p {
+.bingo > p:first-child, .notBingo > p:first-child {
   position: relative;
   text-align: center;
   top: 30px;
@@ -106,6 +106,12 @@ input[type=submit]:active {
   position: relative;
   display: inline-block;
   text-decoration: none;
-  top: 50px;
+  top: 40px;
   left: 120px;
+}
+
+.bingoTime {
+  position: relative;
+  text-align: center;
+  top: 20px;
 }
