@@ -55,20 +55,27 @@
     <?php endfor; ?>
   </table>
   
+  <div class="bingo">
+    <p>BINGO!</p>
+    <a href="">Replay</a>
+  </div>
   
   
   <form action="" method="post" class="lottery">
     <input type="submit" value="次の番号を抽選する" class="lotteryBtn">
     <input type="hidden" value="<?php echo $number[0] ?>" class="sendNum" name="num">
   </form>
-  <p class="resultTimes"></p>
-  <p class="resultNum"></p>
-  <p class="resultScore"></p>
+  <div class="result">
+    <p class="resultTimes"></p>
+    <p class="resultNum"></p>
+    <p class="resultScore"></p>
+  </div>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script>
     $(function() {
       let i = 0;
       let hitNum = 0;
+      let playingNow = true;
       $('.lottery').on('submit', e => {
       i ++;
       e.preventDefault();
@@ -85,6 +92,7 @@
         if(i === 1) {
           
           $('.' + 13).css({'opacity':0.5});
+          $('.13').addClass('done');
           hitNum ++;
         }
         const bingo2 = JSON.parse('<?php echo $php_json?>');
@@ -102,7 +110,7 @@
             j++;
           }
         }
-        
+
         if($('.1').hasClass('done') && 
            $('.6').hasClass('done') &&
            $('.11').hasClass('done') &&
@@ -110,22 +118,123 @@
            $('.21').hasClass('done')
         ) {
           console.log('Bingo');
+          playingNow = false;
         }
 
-        if($('.2').hasClass('done') && 
+        
+        if(playingNow === true &&
+           $('.2').hasClass('done') && 
            $('.7').hasClass('done') &&
            $('.12').hasClass('done') &&
            $('.17').hasClass('done') &&
            $('.22').hasClass('done')
         ) {
           console.log('Bingo');
+          playingNow = false;
         }
 
-        if($('.3').hasClass('done') && 
+        if(playingNow === true &&
+           $('.3').hasClass('done') && 
            $('.8').hasClass('done') &&
-           $('.13').hasClass('done') &&
            $('.18').hasClass('done') &&
            $('.23').hasClass('done')
+        ) {
+          console.log('Bingo');
+          playingNow = false;
+        }
+
+        if(playingNow === true &&
+           $('.4').hasClass('done') && 
+           $('.9').hasClass('done') &&
+           $('.14').hasClass('done') &&
+           $('.19').hasClass('done') &&
+           $('.24').hasClass('done')
+        ) {
+          console.log('Bingo');
+          playingNow = false;
+        }
+
+        if(playingNow === true &&
+           $('.5').hasClass('done') && 
+           $('.10').hasClass('done') &&
+           $('.15').hasClass('done') &&
+           $('.20').hasClass('done') &&
+           $('.25').hasClass('done')
+        ) {
+          console.log('Bingo');
+          playingNow = false;
+        }
+
+        if(playingNow === true &&
+           $('.1').hasClass('done') && 
+           $('.2').hasClass('done') &&
+           $('.3').hasClass('done') &&
+           $('.4').hasClass('done') &&
+           $('.5').hasClass('done')
+        ) {
+          console.log('Bingo');
+          playingNow = false;
+        }
+
+        if(playingNow === true &&
+           $('.6').hasClass('done') && 
+           $('.7').hasClass('done') &&
+           $('.8').hasClass('done') &&
+           $('.9').hasClass('done') &&
+           $('.10').hasClass('done')
+        ) {
+          console.log('Bingo');
+          playingNow = false;
+        }
+
+        if(playingNow === true &&
+           $('.11').hasClass('done') && 
+           $('.12').hasClass('done') &&
+           $('.13').hasClass('done') &&
+           $('.14').hasClass('done') &&
+           $('.15').hasClass('done')
+        ) {
+          console.log('Bingo');
+          playingNow = false;
+        }
+
+        if(playingNow === true &&
+           $('.16').hasClass('done') && 
+           $('.17').hasClass('done') &&
+           $('.18').hasClass('done') &&
+           $('.19').hasClass('done') &&
+           $('.20').hasClass('done')
+        ) {
+          console.log('Bingo');
+          playingNow = false;
+        }
+
+        if(playingNow === true &&
+           $('.21').hasClass('done') && 
+           $('.22').hasClass('done') &&
+           $('.23').hasClass('done') &&
+           $('.24').hasClass('done') &&
+           $('.25').hasClass('done')
+        ) {
+          console.log('Bingo');
+          playingNow = false;
+        }
+
+        if(playingNow === true &&
+           $('.1').hasClass('done') && 
+           $('.7').hasClass('done') &&
+           $('.19').hasClass('done') &&
+           $('.25').hasClass('done') 
+        ) {
+          console.log('Bingo');
+          playingNow = false;
+        }
+
+        if(playingNow === true &&
+           $('.5').hasClass('done') && 
+           $('.9').hasClass('done') &&
+           $('.17').hasClass('done') &&
+           $('.21').hasClass('done') 
         ) {
           console.log('Bingo');
         }
