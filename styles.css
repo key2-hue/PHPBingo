@@ -69,10 +69,19 @@ input[type=submit]:active {
 }
 
 .notBingo {
-  /* transform: translateY(-400px); */
+  transform:translateY(-600px);
+  z-index: 1;
+  width: 300px;
+  height: 200px;
+  margin: 0 auto; 
+  background: #fff;
+  border: 1px solid gray;
+  /* bottom: 235px; */
+  /* float: center; */
+  /* transition: 1s; */
 }
 
-.bingo {
+ .bingo {
   position: relative;
   z-index: 1;
   width: 300px;
@@ -81,11 +90,11 @@ input[type=submit]:active {
   background: #fff;
   border: 1px solid gray;
   bottom: 235px;
-  float: center;
+  float: center; 
   transition: 1s;
 }
 
-.bingo > p {
+.bingo > p, .notBingo > p {
   position: relative;
   text-align: center;
   top: 30px;
@@ -93,7 +102,7 @@ input[type=submit]:active {
   font-weight: bold;
 }
 
-.bingo > a {
+.bingo > a, .notBingo > a {
   position: relative;
   display: inline-block;
   text-decoration: none;

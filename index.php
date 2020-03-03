@@ -55,7 +55,7 @@
     <?php endfor; ?>
   </table>
   
-  <div class="bingo">
+  <div class="bingoGame notBingo">
     <p>BINGO!</p>
     <a href="">Replay</a>
   </div>
@@ -118,6 +118,8 @@
            $('.21').hasClass('done')
         ) {
           console.log('Bingo');
+          $('.bingoGame').removeClass("notBingo");
+          $('.bingoGame').addClass('bingo');
           playingNow = false;
         }
 
@@ -130,6 +132,8 @@
            $('.22').hasClass('done')
         ) {
           console.log('Bingo');
+          $('.bingoGame').removeClass("notBingo");
+          $('.bingoGame').addClass('bingo');
           playingNow = false;
         }
 
@@ -140,6 +144,8 @@
            $('.23').hasClass('done')
         ) {
           console.log('Bingo');
+          $('.bingoGame').removeClass("notBingo");
+          $('.bingoGame').addClass('bingo');
           playingNow = false;
         }
 
@@ -151,6 +157,8 @@
            $('.24').hasClass('done')
         ) {
           console.log('Bingo');
+          $('.bingoGame').removeClass("notBingo");
+          $('.bingoGame').addClass('bingo');
           playingNow = false;
         }
 
@@ -162,6 +170,8 @@
            $('.25').hasClass('done')
         ) {
           console.log('Bingo');
+          $('.bingoGame').removeClass("notBingo");
+          $('.bingoGame').addClass('bingo');
           playingNow = false;
         }
 
@@ -173,6 +183,8 @@
            $('.5').hasClass('done')
         ) {
           console.log('Bingo');
+          $('.bingoGame').removeClass("notBingo");
+          $('.bingoGame').addClass('bingo');
           playingNow = false;
         }
 
@@ -184,6 +196,8 @@
            $('.10').hasClass('done')
         ) {
           console.log('Bingo');
+          $('.bingoGame').removeClass("notBingo");
+          $('.bingoGame').addClass('bingo');
           playingNow = false;
         }
 
@@ -195,6 +209,8 @@
            $('.15').hasClass('done')
         ) {
           console.log('Bingo');
+          $('.bingoGame').removeClass("notBingo");
+          $('.bingoGame').addClass('bingo');
           playingNow = false;
         }
 
@@ -206,6 +222,8 @@
            $('.20').hasClass('done')
         ) {
           console.log('Bingo');
+          $('.bingoGame').removeClass("notBingo");
+          $('.bingoGame').addClass('bingo');
           playingNow = false;
         }
 
@@ -217,6 +235,8 @@
            $('.25').hasClass('done')
         ) {
           console.log('Bingo');
+          $('.bingoGame').removeClass("notBingo");
+          $('.bingoGame').addClass('bingo');
           playingNow = false;
         }
 
@@ -227,6 +247,8 @@
            $('.25').hasClass('done') 
         ) {
           console.log('Bingo');
+          $('.bingoGame').removeClass("notBingo");
+          $('.bingoGame').addClass('bingo');
           playingNow = false;
         }
 
@@ -237,20 +259,29 @@
            $('.21').hasClass('done') 
         ) {
           console.log('Bingo');
+          $('.bingoGame').removeClass("notBingo");
+          $('.bingoGame').addClass('bingo');
         }
       
          
         
-        
-        if(i < 76) {
-          $('.resultTimes').text(i + "回目の抽選です");
-          $('.resultNum').text("出た数字は " + data);
-        } else {
+        if(playingNow !== true) {
           $('.resultTimes').empty();
           $('.resultNum').empty();
           $('.lotteryBtn').prop('disabled',true);
           $('.lotteryBtn').val("抽選終了です！");
+        } else {
+          if(i < 76) {
+            $('.resultTimes').text(i + "回目の抽選です");
+            $('.resultNum').text("出た数字は " + data);
+          } else {
+            $('.resultTimes').empty();
+            $('.resultNum').empty();
+            $('.lotteryBtn').prop('disabled',true);
+            $('.lotteryBtn').val("抽選終了です！");
+          }
         }
+        
         
         $('.resultScore').text("空いている数" + hitNum + "マス");
       }).fail(function(msg){
